@@ -27,7 +27,7 @@ class _build_ext(build_ext):
 
 doc = open("README.md").read()
 cfisher_ext = Extension(
-    "fisher.cfisher", 
+    "fishersrc.cfisher",
     ["src/cfisher.pyx"], 
     extra_compile_args=["-O3"],
     include_dirs=[numpy.get_include()],
@@ -36,21 +36,21 @@ cmdclass = {"build_ext": _build_ext}
 cmdclass.update(versioneer.get_cmdclass())
 
 setup_options = dict(
-    name="fisher",
-    version=versioneer.get_version(),
+    name="fishersrc",
+    version="0.1.15",
     description="Fast Fisher's Exact Test",
-    url="http://github.com/brentp/fishers_exact_test",
+    url="http://github.com/mmore500/fishersrc",
     long_description=doc,
     long_description_content_type="text/markdown",
-    author="Haibao Tang, Brent Pedersen",
-    author_email="bpederse@gmail.com",
+    author="maintainer Matthew Andres Moreno (original authors Haibao Tang, Brent Pedersen)",
+    author_email="m.more500@gmail.com",
     ext_modules=[cfisher_ext],
     cmdclass=cmdclass,
     install_requires=['numpy'],
     setup_requires=["numpy", "cython", "versioneer"],
     keywords="statistics cython",
     license="BSD",
-    packages=["fisher"],
+    packages=["fishersrc"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
