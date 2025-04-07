@@ -1,7 +1,6 @@
 import sys
 
 import numpy
-import versioneer
 from Cython.Build import cythonize
 from setuptools import setup
 from setuptools.command.build_ext import build_ext
@@ -33,7 +32,6 @@ cfisher_ext = Extension(
     include_dirs=[numpy.get_include()],
 )
 cmdclass = {"build_ext": _build_ext}
-cmdclass.update(versioneer.get_cmdclass())
 
 setup_options = dict(
     name="fishersrc",
@@ -47,7 +45,7 @@ setup_options = dict(
     ext_modules=[cfisher_ext],
     cmdclass=cmdclass,
     install_requires=['numpy'],
-    setup_requires=["numpy", "cython", "versioneer"],
+    setup_requires=["numpy", "cython"],
     keywords="statistics cython",
     license="BSD",
     packages=["fishersrc"],
